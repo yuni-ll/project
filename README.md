@@ -1,5 +1,5 @@
 #### project idea or so
-
+```text
 project/
 ├── .github/
 │   ├── workflows/
@@ -65,3 +65,4 @@ project/
 ├── Cargo.toml
 ├── pnpm-workspace.yaml
 └── README.md
+````
