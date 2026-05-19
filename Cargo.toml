@@ -1,0 +1,35 @@
+[package]
+name = "simulation-core"
+version = "0.1.0"
+edition = "2021"
+description = "deterministic simulation engine — runs identically on server (native) and client (WASM)"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+wasm = ["wasm-bindgen", "console_error_panic_hook"]
+
+[dependencies]
+serde = { workspace = true }
+bincode = { workspace = true }
+rand = { workspace = true }
+thiserror = { workspace = true }
+
+wasm-bindgen = { version = "0.2", optional = true }
+console_error_panic_hook = { version = "0.1", optional = true }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "simulation_throughput"
+harness = false
+
+[[bench]]
+name = "pathfinding"
+harness = false
+
+[[bench]]
+name = "ecs_query"
+harness = false
